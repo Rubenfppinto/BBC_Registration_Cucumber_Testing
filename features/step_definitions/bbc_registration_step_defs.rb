@@ -19,38 +19,15 @@ When("I input my DOB") do
     bbc_registration_page.fill_day_field
     bbc_registration_page.fill_month_field
     bbc_registration_page.fill_year_field
-    bbc_registration_page.click_dob_submit_button
-    sleep 4
+    bbc_registration_page.click_submit_button
 end
 
-When("I input the necessary details with the password details a@{int}") do |int|
-    pending # Write code here that turns the phrase above into concrete actions
+When(/^I input the necessary details with the password details (.*)$/) do |password|
+    @pw = password
+    bbc_registration_page.fill_in_password(@pw)
+    bbc_registration_page.click_submit_button
 end
 
-Then("I receive the corresponding error Sorry, that password is too short. It needs to be eight characters or more.") do
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I input the necessary details with the password details abcd{int}") do |int|
-pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I receive the corresponding error Sorry, that password isn{string}s hard to guess.") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I input the necessary details with the password details abcdefgh") do
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I receive the corresponding error Sorry, that password isn{string}t a letter.") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I input the necessary details with the password details {int}") do |int|
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I receive the corresponding error Sorry, that password isn't valid. Please include a letter.") do
-    pending # Write code here that turns the phrase above into concrete actions
+Then(/^I receive the corresponding error (.*)$/) do |error|
+    expect(bbc_registration_page.get_password_error_message).to eq error
 end
