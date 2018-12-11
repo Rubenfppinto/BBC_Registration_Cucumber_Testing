@@ -12,7 +12,6 @@ end
 
 When("I select I am over 13") do
     bbc_registration_page.click_thirteen_or_over
-    sleep 2
 end
 
 When("I input my DOB") do
