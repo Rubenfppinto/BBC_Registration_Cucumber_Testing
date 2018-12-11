@@ -3,4 +3,4 @@
 ## Task
 (in progress)
 
-Report link: https://rubenfppinto.github.io/BBC_Registration_Cucumber_Testing/index.html
+Report link: https://rubenfppinto.github.io/BBC_Registration_Cucumber_Testing
